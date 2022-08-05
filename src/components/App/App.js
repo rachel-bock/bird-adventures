@@ -31,16 +31,25 @@ class App extends Component {
       <div className="App">
         <h1>Bird Adventures</h1>
         <NavBar />
-        {/* <Switch> */}
-          {/* <Route path='/sightings' render={() => { */}
-            {/* <> */}
+        <Switch>
+          <Route exact path='/sightings'>
               <Header /> 
               <Sightings birds={this.state.sightings} />
+          </Route>
+          <Route exact path='/contributors'>
               <Contributors contributors={this.state.contributors}/>
+          </Route>
+          <Route exact path='/checklist'>
               <Checklist />
-            {/* </> */}
-          {/* }}/> */}
-        {/* </Switch> */}
+          </Route>
+          <Route exact path='/'>
+            <h2>Welcome to Bird Adventures</h2>
+            <p>Here you can find the most recent bird sightings in Colorado.</p>
+          </Route>
+          <Route path='*'>
+              <h3>Sorry, that page that doesn't exist.</h3>
+          </Route>
+        </Switch>
       </div>
     );
   }

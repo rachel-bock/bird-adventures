@@ -1,10 +1,13 @@
 import React from 'react';
 
-const SightingCard = () => {
+const SightingCard = ({bird}) => {
 
   
   return (
-    <p>SightingCard component</p>
+    <>
+      <h4>{bird.comName}</h4>
+      <p>spotted at {bird.locName} on {bird.obsDt}</p>
+    </>
   )
 }
 

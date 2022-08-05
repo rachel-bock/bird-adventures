@@ -1,11 +1,15 @@
 import React from 'react';
 
-const ContributorCard = () => {
+const ContributorCard = ({contributor, index}) => {
 
   
   return (
-    <p>ContributorCard component</p>
+    <>
+      <p>{index}.  {contributor.userDisplayName} spotted {contributor.numSpecies} species.</p>
+    </>
   )
 }
+
+
 
 export default ContributorCard;

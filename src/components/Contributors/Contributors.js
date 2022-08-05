@@ -3,9 +3,11 @@ import ContributorCard from '../ContributorCard/ContributorCard';
 
 const Contributors = ({contributors}) => {
 
-  const contributorList = contributors.map(person => {
+  const contributorList = contributors.map((person, index) => {
     return (
-      <ContributorCard contributor={person} />
+      <div key={index}>
+        <ContributorCard contributor={person} index={index + 1 }/>
+      </div>
     )
   })
 
