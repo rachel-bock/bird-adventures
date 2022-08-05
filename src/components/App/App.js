@@ -22,7 +22,8 @@ class App extends Component {
   componentDidMount= () => {
     getSightings()
     .then(data => this.setState({sightings: data}));
-
+    getContributors() 
+    .then(data => this.setState({contributors: data}));
   }
   
   render() {
@@ -35,7 +36,7 @@ class App extends Component {
             {/* <> */}
               <Header /> 
               <Sightings birds={this.state.sightings} />
-              <Contributors />
+              <Contributors contributors={this.state.contributors}/>
               <Checklist />
             {/* </> */}
           {/* }}/> */}
