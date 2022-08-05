@@ -1,10 +1,14 @@
 import React from 'react';
+import ChecklistCard from '../ChecklistCard/ChecklistCard';
 
-const Checklist = () = {
+const Checklist = () => {
 
   
   return (
-    <p>Checklist component</p>
+    <>
+      <p>Checklist component</p>
+      <ChecklistCard />
+    </>
   )
 }
 

@@ -16,9 +16,20 @@ export const getTopContributors = (yesterday) => {
     }
     return response.json();
   })
-  // .catch(error => console.log('error', error));
+  .catch(error => console.log('error', error));
 }
 
+export const getSightings = () => {
+  const url = 'https://api.ebird.org/v2/data/obs/US-CO/recent'
+  return fetch(url, requestOptions)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error();
+      }
+      return response.json();
+    })
+    .catch(error => console.log('error', error));
+}
 
 // const myHeaders = new Headers();
 // myHeaders.append("X-eBirdApiToken", apiKey);
