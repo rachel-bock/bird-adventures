@@ -1,37 +1,48 @@
-import React, { useEffect } from 'react';
+import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Checklist from '../Checklist/Checklist';
 import Contributors from '../Contributors/Contributors';
 import Header from '../Header/Header';
 import NavBar from '../NavigationBar/NavBar';
 import Sightings from '../Sightings/Sightings';
-import useDataStore from '../hooks/useDataStore';
-import 
+import { getSightings, getContributors } from '../../apiCalls';
 import './App.css';
 
-function App() {
+class App extends Component {
 
+  constructor () {
+    super();
+    this.state = {
+      sightings: [], 
+      contributors: [], 
+      checklist: []
+    }
+  }
 
-  useEffect(
+  componentDidMount= () => {
+    getSightings()
+    .then(data => this.setState({sightings: data}));
 
-  )
-
-  return (
-    <div className="App">
-      <h1>Bird Adventures</h1>
-      <NavBar />
-      {/* <Switch> */}
-        {/* <Route path='/sightings' render={() => { */}
-          {/* <> */}
-            <Header /> 
-            <Sightings />
-            <Contributors />
-            <Checklist />
-          {/* </> */}
-        {/* }}/> */}
-      {/* </Switch> */}
-    </div>
-  );
+  }
+  
+  render() {
+    return(
+      <div className="App">
+        <h1>Bird Adventures</h1>
+        <NavBar />
+        {/* <Switch> */}
+          {/* <Route path='/sightings' render={() => { */}
+            {/* <> */}
+              <Header /> 
+              <Sightings birds={this.state.sightings} />
+              <Contributors />
+              <Checklist />
+            {/* </> */}
+          {/* }}/> */}
+        {/* </Switch> */}
+      </div>
+    );
+  }
 }
 
 export default App;

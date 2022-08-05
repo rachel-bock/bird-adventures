@@ -1,13 +1,11 @@
 import React from 'react';
 import SightingsCard from '../SightingCard/SightingCard';
-import useDataStore from '../hooks/useDataStore';
 
-const Sightings = () => {
 
-  const sightings = useDataStore(state => state.sightings);
-  
+const Sightings = (birds) => {
+
   const recentSightings = () => {
-    sightings.map( bird => {
+    birds.map( bird => {
       return (
         <SightingsCard bird={bird}/>
       )

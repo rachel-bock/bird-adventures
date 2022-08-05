@@ -6,9 +6,9 @@ const requestOptions = {
   redirect: 'follow'
 };
 
-export const getTopContributors = (yesterday) => {
+export const getContributors = (yesterday) => {
   
-  const url = `https://api.ebird.org/v2/product/top100/US-CO/2022/08/01`
+  const url = `https://api.ebird.org/v2/product/top100/US-CO/2022/08/05`
   return fetch(url, requestOptions)
   .then(response => {
     if (!response.ok) {
@@ -21,6 +21,7 @@ export const getTopContributors = (yesterday) => {
 
 export const getSightings = () => {
   const url = 'https://api.ebird.org/v2/data/obs/US-CO/recent'
+
   return fetch(url, requestOptions)
     .then(response => {
       if (!response.ok) {
