@@ -1,25 +1,18 @@
 import React from 'react';
 import SightingsCard from '../SightingCard/SightingCard';
-// import { useParams, useRouteMatch} from 'react-router-dom';
-
 
 const Sightings = ({birds}) => {
-  // const { birds } = useParams();
 
-  const recentSightings = birds.map((bird, index) => {
-    if(!bird.locationPrivate) {
+  const publicSightings = birds.filter(bird => !bird.locationPrivate)
+
+  const recentSightings = publicSightings.map((bird, index) => {
       return (
         <div key={index}>
           <SightingsCard bird={bird}/>
         </div>
       )
-    } else {
-      return (
-        <></>
-      )
-    }
   })
-   
+     
   return (
     <div className='sightings-wrapper'>
       <p>Sightings component</p>
