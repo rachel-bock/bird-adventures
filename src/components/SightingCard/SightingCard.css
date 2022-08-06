@@ -1,7 +1,7 @@
 .sighting-card {
   box-sizing: border-box;
-  padding: 10px;
-
+  padding: 1em;
+  margin: 1em;
   width: 20em;
   border-radius: 6%;
   border: 0.25em solid black;

@@ -1,5 +1,6 @@
 import React from 'react';
 import ContributorCard from '../ContributorCard/ContributorCard';
+import './Contributors.css';
 
 const Contributors = ({contributors}) => {
 
@@ -12,10 +13,9 @@ const Contributors = ({contributors}) => {
   })
 
   return (
-    <>
-      <p>Contributors component</p>
+    <div className='contributors-wrapper'>
       {contributorList}
-    </>
+    </div>
   )
 }
 

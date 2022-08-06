@@ -1,0 +1,6 @@
+.contributors-wrapper {
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

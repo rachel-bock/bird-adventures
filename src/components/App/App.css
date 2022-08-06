@@ -1,8 +1,14 @@
 * {
   /* border: 1px solid red; */
+  background-color: #E2EAEF;
+  /* background-color: #EDEEF0; */
 }
 
 .App {
   text-align: center;
+  /* background-image: ; */
 }
 
+img {
+  border: 0.15em solid black;
+}
