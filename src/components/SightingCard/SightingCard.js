@@ -1,4 +1,5 @@
 import React from 'react';
+import './SightingCard.css';
 
 const SightingCard = ({bird}) => {
 

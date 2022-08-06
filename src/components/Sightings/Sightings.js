@@ -1,5 +1,6 @@
 import React from 'react';
 import SightingsCard from '../SightingCard/SightingCard';
+import './Sightings.css';
 
 const Sightings = ({birds}) => {
 
@@ -15,7 +16,6 @@ const Sightings = ({birds}) => {
      
   return (
     <div className='sightings-wrapper'>
-      <p>Sightings component</p>
       {recentSightings}  
     </div>
   )
