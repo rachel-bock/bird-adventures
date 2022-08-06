@@ -1,0 +1,21 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items:center;
+}
+
+.nav-options {
+  width: 75vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items:center;
+}
+
+img {
+  height: 8em;
+  display: flex;
+}
