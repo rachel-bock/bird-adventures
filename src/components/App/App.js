@@ -16,17 +16,26 @@ class App extends Component {
     this.state = {
       sightings: [], 
       contributors: [], 
-      checklist: []
+      checklist: [],
+      allSightings: []
     }
   }
 
   componentDidMount= () => {
     getSightings()
-    .then(data => this.setState({sightings: data}));
+    .then(data => this.setState({allSightings: data}));
     getContributors() 
     .then(data => this.setState({contributors: data}));
+
+    const publicSightings = this.state.allSightings.filter(bird => !bird.locationPrivate);
+
+    this.setState({sightings: publicSightings});
   }
-  
+
+  filterSightings = (searchQuery) => {
+    // this.state.sightings = this.state.allSightings.filter(bird => bird.comName.includes(searchQuery));
+  }
+
   render() {
     return(
       <div className="App">
@@ -34,15 +43,13 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route exact path='/sightings'>
-            <Header /> 
+            <Header filterSightings={this.filterSightings} birds={this.state.sightings}/> 
             <Sightings birds={this.state.sightings} />
           </Route>
           <Route exact path='/contributors'>
-            <Header /> 
             <Contributors contributors={this.state.contributors}/>
           </Route>
           <Route exact path='/checklist'>
-            <Header /> 
             <Checklist />
           </Route>
           <Route exact path='/'>

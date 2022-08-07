@@ -6,9 +6,11 @@ const requestOptions = {
   redirect: 'follow'
 };
 
-export const getContributors = (yesterday) => {
+export const getContributors = () => {
   
-  const url = `https://api.ebird.org/v2/product/top100/US-CO/2022/08/05`
+  const today = new Date();
+  const url = `https://api.ebird.org/v2/product/top100/US-CO/${today.getFullYear()}/${today.getMonth() +1}/${today.getDate()}`;
+
   return fetch(url, requestOptions)
   .then(response => {
     if (!response.ok) {

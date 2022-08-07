@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Header = () => {
+class Header extends Component {
 
-  
-  return (
-    <p>Header component</p>
-  )
+  constructor() {
+    super();
+    this.state = {
+      search: ''
+    }
+  }
+
+  handleChange = event => {
+    this.state({[event.target.name]: event.target.value});
+  }
+
+  render() {
+    return (
+      <form>
+        <input 
+          type='text'
+          placeholder='Search bird sightings'
+          name='search'
+          value={this.state.search}
+          onChange={event => this.handleChange(event)}
+          required
+        />
+        <button>SUBMIT</button>
+      </form>
+    )
+  }
 }
 
 export default Header;

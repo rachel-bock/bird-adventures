@@ -1,0 +1,10 @@
+form {
+  margin: auto;
+}
+
+input, button {
+  margin: .5em;
+  width: 30%;
+  border: .15em solid black;
+  font-size: 1em;
+}
