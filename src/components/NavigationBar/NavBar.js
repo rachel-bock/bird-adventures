@@ -7,12 +7,8 @@ const NavBar = () => {
 
   return (
     <div className='navigation'>
-      <div>
-        <Link to='/'>
-          <img src={birdImage} alt='bird by Jacques'/>
-        </Link>
-      </div>
       <div className='nav-options'>
+        <img src={birdImage} alt='bird by Jacques'/>
         <NavLink to='/'>
           Home
         </NavLink>
@@ -22,12 +18,12 @@ const NavBar = () => {
         <NavLink to='/contributors'>
           Top 100 Contributors
         </NavLink>
-        <NavLink to='/checklist'>
+        {/* <NavLink to='/checklist'>
           My Checklist
         </NavLink>
         <NavLink to='/more'>
           More Information
-        </NavLink>
+        </NavLink> */}
       </div>
     </div>
   )

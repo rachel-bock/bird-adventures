@@ -8,6 +8,7 @@ import Sightings from '../Sightings/Sightings';
 import { getSightings, getContributors } from '../../apiCalls';
 import './App.css';
 
+
 class App extends Component {
 
   constructor () {
@@ -33,21 +34,23 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route exact path='/sightings'>
-              <Header /> 
-              <Sightings birds={this.state.sightings} />
+            <Header /> 
+            <Sightings birds={this.state.sightings} />
           </Route>
           <Route exact path='/contributors'>
-              <Contributors contributors={this.state.contributors}/>
+            <Header /> 
+            <Contributors contributors={this.state.contributors}/>
           </Route>
           <Route exact path='/checklist'>
-              <Checklist />
+            <Header /> 
+            <Checklist />
           </Route>
           <Route exact path='/'>
             <h2>Welcome to Bird Adventures</h2>
-            <p>Here you can find the most recent bird sightings in Colorado.</p>
+            <p>Here you can find bird sightings in Colorado for the most recent 14 day period.</p>
           </Route>
           <Route path='*'>
-              <h3>Sorry, that page that doesn't exist.</h3>
+              <h3>Error 404: Sorry, that page that doesn't exist.</h3>
           </Route>
         </Switch>
       </div>

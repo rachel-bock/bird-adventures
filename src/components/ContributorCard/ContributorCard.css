@@ -1,0 +1,8 @@
+.contributor {
+  box-sizing: border-box;
+  padding: 1em;
+  margin: 1em;
+  width: 20em;
+  border-radius: 6%;
+  border: 0.25em solid black;
+}
