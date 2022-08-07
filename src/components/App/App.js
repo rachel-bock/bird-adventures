@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Checklist from '../Checklist/Checklist';
 import Contributors from '../Contributors/Contributors';
-import Header from '../Header/Header';
 import NavBar from '../NavigationBar/NavBar';
 import Sightings from '../Sightings/Sightings';
 import { getSightings, getContributors } from '../../apiCalls';
@@ -17,23 +16,14 @@ class App extends Component {
       sightings: [], 
       contributors: [], 
       checklist: [],
-      allSightings: []
     }
   }
 
   componentDidMount= () => {
     getSightings()
-    .then(data => this.setState({allSightings: data}));
+    .then(data => this.setState({sightings: data}));
     getContributors() 
     .then(data => this.setState({contributors: data}));
-
-    const publicSightings = this.state.allSightings.filter(bird => !bird.locationPrivate);
-
-    this.setState({sightings: publicSightings});
-  }
-
-  filterSightings = (searchQuery) => {
-    // this.state.sightings = this.state.allSightings.filter(bird => bird.comName.includes(searchQuery));
   }
 
   render() {
@@ -43,7 +33,6 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route exact path='/sightings'>
-            <Header filterSightings={this.filterSightings} birds={this.state.sightings}/> 
             <Sightings birds={this.state.sightings} />
           </Route>
           <Route exact path='/contributors'>
