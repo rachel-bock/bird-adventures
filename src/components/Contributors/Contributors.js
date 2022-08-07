@@ -1,6 +1,7 @@
 import React from 'react';
 import ContributorCard from '../ContributorCard/ContributorCard';
 import './Contributors.css';
+import PropTypes from 'prop-types';
 
 const Contributors = ({contributors}) => {
 
@@ -17,6 +18,10 @@ const Contributors = ({contributors}) => {
       {contributorList}
     </div>
   )
+}
+
+Contributors.propTypes = {
+  contributors: PropTypes.array.isRequired
 }
 
 export default Contributors;

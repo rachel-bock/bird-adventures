@@ -7,11 +7,6 @@ const NavBar = () => {
 
   return (
     <div className='navigation'>
-      {/* <div>
-        <Link to='/'>
-          <img src={birdImage} alt='bird by Jacques'/>
-        </Link>
-      </div> */}
       <div className='nav-options'>
         <img src={birdImage} alt='bird by Jacques'/>
         <NavLink to='/'>

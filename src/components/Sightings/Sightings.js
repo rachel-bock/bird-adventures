@@ -1,6 +1,7 @@
 import React from 'react';
 import SightingsCard from '../SightingCard/SightingCard';
 import './Sightings.css';
+import PropTypes from 'prop-types';
 
 const Sightings = ({birds}) => {
 
@@ -19,6 +20,10 @@ const Sightings = ({birds}) => {
       {recentSightings}  
     </div>
   )
+}
+
+Sightings.propTypes = {
+  birds: PropTypes.array.isRequired
 }
 
 export default Sightings;
