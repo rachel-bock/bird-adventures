@@ -5,14 +5,12 @@ import PropTypes from 'prop-types';
 
 const Sightings = ({birds}) => {
 
-  const publicSightings = birds.filter(bird => !bird.locationPrivate)
-
-  const recentSightings = publicSightings.map((bird, index) => {
-      return (
-        <div key={index}>
-          <SightingsCard bird={bird}/>
-        </div>
-      )
+  const recentSightings = birds.map((bird, index) => {
+    return (
+      <div key={index}>
+        <SightingsCard bird={bird}/>
+      </div>
+    )
   })
      
   return (

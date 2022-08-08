@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Checklist from '../Checklist/Checklist';
 import Contributors from '../Contributors/Contributors';
-import Header from '../Header/Header';
+import Form from '../Form/Form';
 import NavBar from '../NavigationBar/NavBar';
 import Sightings from '../Sightings/Sightings';
 import { getSightings, getContributors } from '../../apiCalls';
 import './App.css';
-
 
 class App extends Component {
 
@@ -16,7 +15,8 @@ class App extends Component {
     this.state = {
       sightings: [], 
       contributors: [], 
-      checklist: []
+      checklist: [],
+      searchQuery: ''
     }
   }
 
@@ -26,23 +26,23 @@ class App extends Component {
     getContributors() 
     .then(data => this.setState({contributors: data}));
   }
-  
+
   render() {
     return(
       <div className="App">
         <h1>Bird Adventures</h1>
         <NavBar />
         <Switch>
+          <Route path='/search/:bird' render={({match})=> {
+            return <Checklist bird={match.params.bird} birds={this.state.sightings}/>}}/>
           <Route exact path='/sightings'>
-            <Header /> 
-            <Sightings birds={this.state.sightings} />
+            <Form searchBirds={this.searchBirds}/>
+            <Sightings birds={this.state.sightings} search={this.state.searchQuery}/>
           </Route>
           <Route exact path='/contributors'>
-            <Header /> 
             <Contributors contributors={this.state.contributors}/>
           </Route>
           <Route exact path='/checklist'>
-            <Header /> 
             <Checklist />
           </Route>
           <Route exact path='/'>

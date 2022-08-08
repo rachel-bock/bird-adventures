@@ -1,0 +1,26 @@
+[
+  {
+      "profileHandle": "NDE3MTM3",
+      "userDisplayName": "John Anderson",
+      "numSpecies": 62,
+      "numCompleteChecklists": 0,
+      "rowNum": 1,
+      "userId": "USER417137"
+  },
+  {
+      "profileHandle": "NjA1OTU3",
+      "userDisplayName": "Daniel Horton",
+      "numSpecies": 61,
+      "numCompleteChecklists": 0,
+      "rowNum": 2,
+      "userId": "USER605957"
+  },
+  {
+      "profileHandle": "NTUxODU2",
+      "userDisplayName": "Brian Genge",
+      "numSpecies": 55,
+      "numCompleteChecklists": 0,
+      "rowNum": 3,
+      "userId": "USER551856"
+  }
+]
