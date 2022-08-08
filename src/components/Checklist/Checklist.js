@@ -20,7 +20,7 @@ const Checklist = ({bird, birds}) => {
     )
   })
   
-  console.log(recentSightings);
+//   console.log(recentSightings);
 
   return (
     <div className='sightings-wrapper'>      
