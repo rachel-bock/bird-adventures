@@ -26,8 +26,17 @@ Bird adventures is an app that allows birders to see the top 100 contributors as
   - CSS
 
 ## Illustrations
+Visiting the home page:
+![Home Page](https://github.com/rachel-bock/bird-adventures/blob/4ac9b48af928452e0cdbc80c8abf13a07000893b/public/Home.png)
 
+Recent Sightings Page:
+![Recent Sightings Page](https://github.com/rachel-bock/bird-adventures/blob/4ac9b48af928452e0cdbc80c8abf13a07000893b/public/Screen%20Shot%202022-08-07%20at%208.56.31%20PM.png)
 
+Search Results Page:
+![Search Results Page](https://github.com/rachel-bock/bird-adventures/blob/4ac9b48af928452e0cdbc80c8abf13a07000893b/public/Screen%20Shot%202022-08-07%20at%208.56.51%20PM.png)
+
+Top 100 Contributors:
+![Top 100 Contributors](https://github.com/rachel-bock/bird-adventures/blob/4ac9b48af928452e0cdbc80c8abf13a07000893b/public/Screen%20Shot%202022-08-07%20at%208.57.06%20PM.png)
 
 ## Install + Setup
 
