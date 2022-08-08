@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Form.css';
+import { Link } from 'react-router-dom';
 
 class Form extends Component {
 
@@ -16,7 +17,7 @@ class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={(event) => this.props.searchBirds(event, this.state.search)}>
+      <form onSubmit={(event) => this.props.searchBirds(event, this.state.search.toLowerCase())}>
         <input 
           type='text'
           placeholder='Search bird sightings'
@@ -25,7 +26,9 @@ class Form extends Component {
           onChange={event => this.handleChange(event)}
           required
         />
-        <button>SUBMIT</button>
+        <Link to={`/search/${this.state.search}`}>
+          <button>SUBMIT</button>
+        </Link>
       </form>
     )
   }

@@ -27,23 +27,14 @@ class App extends Component {
     .then(data => this.setState({contributors: data}));
   }
 
-  searchBirds = (event, searched) => {
-    event.preventDefault();
-    const filteredList = this.state.sightings.filter(bird => bird.comName.includes(searched))
-    this.setState({checklist: [...filteredList]});
-    
-  }
-
   render() {
     return(
       <div className="App">
         <h1>Bird Adventures</h1>
         <NavBar />
         <Switch>
-          <Route path='/sightings?search=:bird' render={({match})=> {
-            let { bird } = match.params
-            
-            return <Checklist birds={this.state.checklist}/>}}/>
+          <Route path='/search/:bird' render={({match})=> {
+            return <Checklist bird={match.params.bird} birds={this.state.sightings}/>}}/>
           <Route exact path='/sightings'>
             <Form searchBirds={this.searchBirds}/>
             <Sightings birds={this.state.sightings} search={this.state.searchQuery}/>
