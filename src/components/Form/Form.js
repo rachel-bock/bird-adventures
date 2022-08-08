@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import './Form.css';
 
-class Header extends Component {
+class Form extends Component {
 
   constructor() {
     super();
@@ -10,12 +11,12 @@ class Header extends Component {
   }
 
   handleChange = event => {
-    this.state({[event.target.name]: event.target.value});
+    this.setState({[event.target.name]: event.target.value});
   }
 
   render() {
     return (
-      <form>
+      <form onSubmit={(event) => this.props.searchBirds(event, this.state.search)}>
         <input 
           type='text'
           placeholder='Search bird sightings'
@@ -30,4 +31,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default Form;

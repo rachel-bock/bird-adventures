@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Checklist from '../Checklist/Checklist';
 import Contributors from '../Contributors/Contributors';
+import Form from '../Form/Form';
 import NavBar from '../NavigationBar/NavBar';
 import Sightings from '../Sightings/Sightings';
 import { getSightings, getContributors } from '../../apiCalls';
 import './App.css';
-
 
 class App extends Component {
 
@@ -16,6 +16,7 @@ class App extends Component {
       sightings: [], 
       contributors: [], 
       checklist: [],
+      searchQuery: ''
     }
   }
 
@@ -26,14 +27,26 @@ class App extends Component {
     .then(data => this.setState({contributors: data}));
   }
 
+  searchBirds = (event, searched) => {
+    event.preventDefault();
+    const filteredList = this.state.sightings.filter(bird => bird.comName.includes(searched))
+    this.setState({checklist: [...filteredList]});
+    
+  }
+
   render() {
     return(
       <div className="App">
         <h1>Bird Adventures</h1>
         <NavBar />
         <Switch>
+          <Route path='/sightings?search=:bird' render={({match})=> {
+            let { bird } = match.params
+            
+            return <Checklist birds={this.state.checklist}/>}}/>
           <Route exact path='/sightings'>
-            <Sightings birds={this.state.sightings} />
+            <Form searchBirds={this.searchBirds}/>
+            <Sightings birds={this.state.sightings} search={this.state.searchQuery}/>
           </Route>
           <Route exact path='/contributors'>
             <Contributors contributors={this.state.contributors}/>
